@@ -20,12 +20,17 @@ class ReviewRequest(BaseModel):
     document_path: str = "data/synthetic/incoming/incoming_meridian.json"
 
 
-@app.get("/api/health")
+@app.get("/")
 def health() -> dict[str, Any]:
     return {"status": "ok", "service": "vercel"}
 
 
-@app.post("/api/review")
+@app.get("/health")
+def health_detail() -> dict[str, Any]:
+    return {"status": "ok", "service": "vercel"}
+
+
+@app.post("/")
 def review(request: ReviewRequest) -> dict[str, Any]:
     document_path = request.document_path
     sample_path = document_path if os.path.exists(document_path) else "data/synthetic/incoming/incoming_meridian.json"
