@@ -1,0 +1,54 @@
+# Environment
+.env
+.env.*
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+*.egg
+build/
+dist/
+.eggs/
+pip-wheel-metadata/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Tooling caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+.tox/
+
+# Type / build artifacts
+*.so
+*.pyd
+
+# Qdrant local storage (docker volume mounts)
+qdrant_storage/
+
+# Data — keep the folders, ignore contents (except synthetic fixtures)
+data/raw/*
+!data/raw/.gitkeep
+data/synthetic/*.jsonl
+
+# IDE / editor
+.idea/
+.vscode/
+*.swp
+.DS_Store
+
+# Logs & traces
+*.log
+logs/
+traces/

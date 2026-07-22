@@ -1,0 +1,28 @@
+services:
+  qdrant:
+    image: qdrant/qdrant:v1.11.0
+    container_name: precedent-qdrant
+    restart: unless-stopped
+    ports:
+      - "6333:6333" # REST / dashboard / healthz
+      - "6334:6334" # gRPC
+    volumes:
+      - qdrant_storage:/qdrant/storage
+    healthcheck:
+      test: ["CMD-SHELL", "bash -c ':> /dev/tcp/127.0.0.1/6333' || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  jaeger:
+    image: jaegertracing/all-in-one:1.57
+    container_name: precedent-jaeger
+    restart: unless-stopped
+    environment:
+      COLLECTOR_OTLP_ENABLED: "true"
+    ports:
+      - "16686:16686" # Jaeger UI
+      - "4317:4317"   # OTLP gRPC receiver
+
+volumes:
+  qdrant_storage:
