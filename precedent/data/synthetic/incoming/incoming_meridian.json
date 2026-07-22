@@ -1,0 +1,39 @@
+{
+  "contract_id": "8ab6de15-5bfe-51fd-8d28-0b04920da637",
+  "counterparty_name": "Meridian Systems",
+  "effective_date": "2026-08-15",
+  "governing_law": "India",
+  "clauses": [
+    {
+      "position": 0,
+      "clause_type": "limitation_of_liability",
+      "heading": "Limitation Of Liability",
+      "text": "Meridian Systems' total cumulative liability under this Agreement, whether in contract, tort, or otherwise, shall in no event exceed the greater of one thousand dollars ($1,000) or the fees paid by the Company in the thirty (30) days immediately preceding the event giving rise to the claim, and Meridian Systems shall have no liability whatsoever for consequential damages of any kind."
+    },
+    {
+      "position": 1,
+      "clause_type": "payment",
+      "heading": "Payment",
+      "text": "All invoices are due upon receipt, and any invoice not paid within five (5) days shall accrue a late fee of two percent (2%) per month and entitle Meridian Systems to suspend all Services immediately, without further notice, until payment in full, including accrued late fees, is received."
+    },
+    {
+      "position": 2,
+      "clause_type": "termination",
+      "heading": "Termination",
+      "text": "Meridian Systems may terminate this Agreement for convenience at any time, with or without cause, upon written notice to the Company, effective immediately upon such notice, and Meridian Systems shall have no obligation to provide the Company any cure period or opportunity to remedy any alleged breach prior to termination."
+    },
+    {
+      "position": 3,
+      "clause_type": "confidentiality",
+      "heading": "Confidentiality",
+      "text": "All information disclosed by Meridian Systems to the Company, whether marked confidential or not, shall be deemed Confidential Information, and the Company shall hold such information in strict confidence in perpetuity, with no exceptions for information that becomes public through no fault of the Company."
+    },
+    {
+      "position": 4,
+      "clause_type": "ip",
+      "heading": "Ip",
+      "text": "Meridian Systems shall own all right, title, and interest, including all intellectual property rights, in any deliverables, work product, or derivative works created under this Agreement, whether created solely by Meridian Systems or jointly with the Company, and the Company waives, to the extent permitted by law, any moral rights it may have in such deliverables."
+    }
+  ],
+  "full_text": "1. Limitation Of Liability\n\nMeridian Systems' total cumulative liability under this Agreement, whether in contract, tort, or otherwise, shall in no event exceed the greater of one thousand dollars ($1,000) or the fees paid by the Company in the thirty (30) days immediately preceding the event giving rise to the claim, and Meridian Systems shall have no liability whatsoever for consequential damages of any kind.\n\n2. Payment\n\nAll invoices are due upon receipt, and any invoice not paid within five (5) days shall accrue a late fee of two percent (2%) per month and entitle Meridian Systems to suspend all Services immediately, without further notice, until payment in full, including accrued late fees, is received.\n\n3. Termination\n\nMeridian Systems may terminate this Agreement for convenience at any time, with or without cause, upon written notice to the Company, effective immediately upon such notice, and Meridian Systems shall have no obligation to provide the Company any cure period or opportunity to remedy any alleged breach prior to termination.\n\n4. Confidentiality\n\nAll information disclosed by Meridian Systems to the Company, whether marked confidential or not, shall be deemed Confidential Information, and the Company shall hold such information in strict confidence in perpetuity, with no exceptions for information that becomes public through no fault of the Company.\n\n5. Ip\n\nMeridian Systems shall own all right, title, and interest, including all intellectual property rights, in any deliverables, work product, or derivative works created under this Agreement, whether created solely by Meridian Systems or jointly with the Company, and the Company waives, to the extent permitted by law, any moral rights it may have in such deliverables."
+}

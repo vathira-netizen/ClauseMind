@@ -1,0 +1,74 @@
+[
+  {
+    "id": "meridian-systems",
+    "name": "Meridian Systems",
+    "personality": "Aggressive on limitation of liability and indemnity \u2014 always opens with an uncapped, one-sided ask \u2014 but concedes readily on payment terms.",
+    "avg_rounds": 4.0
+  },
+  {
+    "id": "aurelia-cloud",
+    "name": "Aurelia Cloud",
+    "personality": "Pushes unilateral auto-renewal terms and is chronically weak on data processing clauses \u2014 a reliable DPDP gap generator.",
+    "avg_rounds": 2.0
+  },
+  {
+    "id": "kestrel-analytics",
+    "name": "Kestrel Analytics",
+    "personality": "Reasonable across most of the contract, but will never accept a data localisation requirement on data processing clauses.",
+    "avg_rounds": 3.0
+  },
+  {
+    "id": "solace-health-partners",
+    "name": "Solace Health Partners",
+    "personality": "Demands unusually broad, perpetual confidentiality scope given its healthcare data footprint, but concedes easily on liability caps.",
+    "avg_rounds": 3.0
+  },
+  {
+    "id": "ferrovia-logistics",
+    "name": "Ferrovia Logistics",
+    "personality": "Insists on arbitration seated exclusively in its home jurisdiction and will not compromise on venue, but concedes quickly on termination.",
+    "avg_rounds": 3.0
+  },
+  {
+    "id": "nimbus-robotics",
+    "name": "Nimbus Robotics",
+    "personality": "Aggressive on IP ownership of derivative works and chronically difficult on payment terms, generating frequent invoicing disputes.",
+    "avg_rounds": 4.0
+  },
+  {
+    "id": "coral-reef-media",
+    "name": "Coral Reef Media",
+    "personality": "Low-friction across almost every clause type, including auto-renewal terms it accepts without pushback even when unfavorable to itself.",
+    "avg_rounds": 2.0
+  },
+  {
+    "id": "vantage-industrial",
+    "name": "Vantage Industrial",
+    "personality": "Aggressive on termination \u2014 wants unilateral termination for convenience with no cure period \u2014 and will not budge on it.",
+    "avg_rounds": 4.0
+  },
+  {
+    "id": "halcyon-biotech",
+    "name": "Halcyon Biotech",
+    "personality": "Slow, R&D-heavy negotiator that fights hard over IP ownership of co-developed work, but is unusually careful and compliant on data processing.",
+    "avg_rounds": 5.0
+  },
+  {
+    "id": "tidewater-finance",
+    "name": "Tidewater Finance",
+    "personality": "Aggressive on liability caps and dispute venue as a regulated financial entity, but concedes readily on confidentiality scope.",
+    "avg_rounds": 3.0
+  },
+  {
+    "id": "origami-retail",
+    "name": "Origami Retail",
+    "personality": "Small vendor with little negotiating leverage \u2014 concedes broadly across almost every clause type, including its own indemnity ask.",
+    "avg_rounds": 2.0
+  },
+  {
+    "id": "praxis-consulting",
+    "name": "Praxis Consulting",
+    "personality": "Aggressive on payment terms \u2014 demands upfront payment and punitive late fees \u2014 but reasonable everywhere else.",
+    "avg_rounds": 3.0
+  }
+]

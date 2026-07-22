@@ -1,0 +1,51 @@
+{
+  "contract_id": "010c3316-fff5-529b-9e5a-d8636912878d",
+  "counterparty_name": "Bramblewood Media",
+  "effective_date": "2026-08-15",
+  "governing_law": "Singapore",
+  "clauses": [
+    {
+      "position": 0,
+      "clause_type": "payment",
+      "heading": "Payment",
+      "text": "The Company shall pay one hundred percent (100%) of the total fees under this Agreement in advance upon execution, and any amount not paid when due shall accrue interest at the rate of two percent (2%) per month, or the maximum rate permitted by law, whichever is greater, and Bramblewood Media may suspend performance immediately upon any late payment."
+    },
+    {
+      "position": 1,
+      "clause_type": "termination",
+      "heading": "Termination",
+      "text": "Bramblewood Media may terminate this Agreement for convenience at any time, with or without cause, upon written notice to the Company, effective immediately upon such notice, and Bramblewood Media shall have no obligation to provide the Company any cure period or opportunity to remedy any alleged breach prior to termination."
+    },
+    {
+      "position": 2,
+      "clause_type": "confidentiality",
+      "heading": "Confidentiality",
+      "text": "Each party's Confidential Information shall be protected in perpetuity, and the receiving party shall not disclose or use such Confidential Information for any purpose other than performing its obligations under this Agreement, and this obligation shall survive termination of this Agreement indefinitely without any exceptions."
+    },
+    {
+      "position": 3,
+      "clause_type": "limitation_of_liability",
+      "heading": "Limitation Of Liability",
+      "text": "In no event shall Bramblewood Media's aggregate liability arising out of or related to this Agreement exceed the amount of fees paid by the Company in the one (1) month preceding the claim, and in no event shall Bramblewood Media be liable for any indirect, incidental, special, consequential, or punitive damages, even if advised of the possibility of such damages, and this limitation shall apply notwithstanding the failure of any limited remedy of its essential purpose."
+    },
+    {
+      "position": 4,
+      "clause_type": "dispute_resolution",
+      "heading": "Dispute Resolution",
+      "text": "Any dispute arising out of or relating to this Agreement shall be resolved exclusively through binding arbitration administered in Bramblewood Media's home jurisdiction, in accordance with the rules of the arbitral institution designated by Bramblewood Media, and the Company irrevocably waives any right to bring a claim in any other forum, including any court of competent jurisdiction."
+    },
+    {
+      "position": 5,
+      "clause_type": "auto_renewal",
+      "heading": "Auto Renewal",
+      "text": "Upon expiration of the initial term, this Agreement shall renew automatically for successive terms of equal length unless either party provides notice of non-renewal, provided that the Company must deliver such notice no later than ninety (90) days before the renewal date, failing which this Agreement shall renew and the Company shall remain bound for the full renewal term."
+    },
+    {
+      "position": 6,
+      "clause_type": "data_processing",
+      "heading": "Data Processing",
+      "text": "Bramblewood Media, acting as processor of personal data on behalf of the Company in connection with the Services, represents that it processes personal data solely on the Controller's documented instructions and for no other purpose, implements technical and organisational security safeguards no less protective than those required of the Controller, and notifies the Controller without undue delay, and in any event within seventy-two (72) hours, upon becoming aware of any personal data breach, and shall permit audits by the Company upon reasonable notice to verify compliance with the Digital Personal Data Protection Act."
+    }
+  ],
+  "full_text": "1. Payment\n\nThe Company shall pay one hundred percent (100%) of the total fees under this Agreement in advance upon execution, and any amount not paid when due shall accrue interest at the rate of two percent (2%) per month, or the maximum rate permitted by law, whichever is greater, and Bramblewood Media may suspend performance immediately upon any late payment.\n\n2. Termination\n\nBramblewood Media may terminate this Agreement for convenience at any time, with or without cause, upon written notice to the Company, effective immediately upon such notice, and Bramblewood Media shall have no obligation to provide the Company any cure period or opportunity to remedy any alleged breach prior to termination.\n\n3. Confidentiality\n\nEach party's Confidential Information shall be protected in perpetuity, and the receiving party shall not disclose or use such Confidential Information for any purpose other than performing its obligations under this Agreement, and this obligation shall survive termination of this Agreement indefinitely without any exceptions.\n\n4. Limitation Of Liability\n\nIn no event shall Bramblewood Media's aggregate liability arising out of or related to this Agreement exceed the amount of fees paid by the Company in the one (1) month preceding the claim, and in no event shall Bramblewood Media be liable for any indirect, incidental, special, consequential, or punitive damages, even if advised of the possibility of such damages, and this limitation shall apply notwithstanding the failure of any limited remedy of its essential purpose.\n\n5. Dispute Resolution\n\nAny dispute arising out of or relating to this Agreement shall be resolved exclusively through binding arbitration administered in Bramblewood Media's home jurisdiction, in accordance with the rules of the arbitral institution designated by Bramblewood Media, and the Company irrevocably waives any right to bring a claim in any other forum, including any court of competent jurisdiction.\n\n6. Auto Renewal\n\nUpon expiration of the initial term, this Agreement shall renew automatically for successive terms of equal length unless either party provides notice of non-renewal, provided that the Company must deliver such notice no later than ninety (90) days before the renewal date, failing which this Agreement shall renew and the Company shall remain bound for the full renewal term.\n\n7. Data Processing\n\nBramblewood Media, acting as processor of personal data on behalf of the Company in connection with the Services, represents that it processes personal data solely on the Controller's documented instructions and for no other purpose, implements technical and organisational security safeguards no less protective than those required of the Controller, and notifies the Controller without undue delay, and in any event within seventy-two (72) hours, upon becoming aware of any personal data breach, and shall permit audits by the Company upon reasonable notice to verify compliance with the Digital Personal Data Protection Act."
+}

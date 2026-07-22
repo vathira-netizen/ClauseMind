@@ -136,6 +136,23 @@ def init_collections() -> dict[str, bool]:
     return created
 
 
+def reset_collections() -> None:
+    """Drop all three memory collections and recreate them from scratch.
+
+    Unlike :func:`init_collections`, this is destructive: it always
+    recreates every collection, discarding existing points and payload
+    indexes. Used by the corpus seeder's ``--reset`` flag so a reseed starts
+    from a clean slate rather than accumulating duplicate or stale points
+    from a previous corpus version.
+    """
+
+    client = _client()
+    for name in _ALL_COLLECTIONS:
+        if client.collection_exists(name):
+            client.delete_collection(name)
+    init_collections()
+
+
 def upsert_clauses(clauses: list[dict[str, Any]], tenant_id: str) -> list[str]:
     """Embed and upsert clauses into ``clause_memory``.
 
@@ -151,7 +168,15 @@ def upsert_clauses(clauses: list[dict[str, Any]], tenant_id: str) -> list[str]:
     ordinal index, used for ID derivation and defaulting to list order),
     ``counterparty_id``, ``date``, ``negotiation_outcome``,
     ``template_version``, ``governing_law``, ``risk_score``,
-    ``dpdp_relevant``.
+    ``dpdp_relevant``, ``original_text``, ``redline_rounds``.
+
+    ``clause_text`` is embedded and is the text retrieval matches against —
+    for historical corpus clauses this should be the final, actually-agreed
+    text, since that is the useful precedent. ``original_text`` is carried
+    through to the payload only (never embedded) so the demo can show the
+    before/after negotiation delta. ``redline_rounds`` is likewise
+    payload-only; :func:`precedent.memory.profiles.recompute_profile` reads
+    it back to compute a counterparty's average rounds to close.
     """
 
     if not clauses:
@@ -181,6 +206,8 @@ def upsert_clauses(clauses: list[dict[str, Any]], tenant_id: str) -> list[str]:
             "dpdp_relevant": clause.get("dpdp_relevant", False),
             "tenant_id": tenant_id,
             "clause_text": clause["clause_text"],
+            "original_text": clause.get("original_text"),
+            "redline_rounds": clause.get("redline_rounds"),
         }
         points.append(
             PointStruct(id=point_id, vector={"dense": dense_vec, "sparse": sparse_vec}, payload=payload)
@@ -263,6 +290,26 @@ def get_by_contract_id(contract_id: str) -> list[dict[str, Any]]:
             must=[FieldCondition(key="contract_id", match=MatchValue(value=str(contract_id)))]
         ),
         limit=1000,
+        with_payload=True,
+        with_vectors=False,
+    )
+    return [{"id": r.id, **(r.payload or {})} for r in records]
+
+
+def get_by_counterparty_id(counterparty_id: str) -> list[dict[str, Any]]:
+    """Fetch every ``clause_memory`` point belonging to a counterparty.
+
+    Used by :func:`precedent.memory.profiles.recompute_profile` to compute a
+    counterparty's concession rate, contested clause types, and average
+    rounds to close from its full negotiation history.
+    """
+
+    records, _ = _client().scroll(
+        collection_name=CLAUSE_MEMORY,
+        scroll_filter=Filter(
+            must=[FieldCondition(key="counterparty_id", match=MatchValue(value=str(counterparty_id)))]
+        ),
+        limit=5000,
         with_payload=True,
         with_vectors=False,
     )

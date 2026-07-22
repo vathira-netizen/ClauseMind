@@ -1,0 +1,218 @@
+[
+  {
+    "clause_type": "indemnity",
+    "position_rank": 0,
+    "position_text": "Indemnification is mutual and limited to third-party claims arising from a party's gross negligence, willful misconduct, or material breach, capped at twelve (12) months of fees paid, with no obligation to indemnify for consequential or punitive damages.",
+    "walk_away": false
+  },
+  {
+    "clause_type": "indemnity",
+    "position_rank": 1,
+    "position_text": "We will accept a broader indemnification obligation on our part only if it is capped at twelve (12) months of fees paid and excludes consequential, incidental, and punitive damages, and only in exchange for a reciprocal indemnity from the counterparty.",
+    "walk_away": false
+  },
+  {
+    "clause_type": "indemnity",
+    "position_rank": 2,
+    "position_text": "As a last resort, we will accept an uncapped indemnity limited strictly to third-party intellectual property infringement claims arising from our unmodified product, provided we retain the right to control the defense and any settlement.",
+    "walk_away": false
+  },
+  {
+    "clause_type": "indemnity",
+    "position_rank": 3,
+    "position_text": "Walk away if the counterparty demands an uncapped, unilateral indemnity covering all claims of any kind, with no carve-outs, no defense-control rights, and no reciprocal obligation \u2014 this exposes the company to unbounded, unpriced risk.",
+    "walk_away": true
+  },
+  {
+    "clause_type": "ip",
+    "position_rank": 0,
+    "position_text": "Each party retains ownership of its pre-existing intellectual property; jointly developed deliverables are jointly owned, with each party granted a perpetual, royalty-free license to use them internally.",
+    "walk_away": false
+  },
+  {
+    "clause_type": "ip",
+    "position_rank": 1,
+    "position_text": "We will assign ownership of bespoke deliverables created specifically under a paid Statement of Work, provided we retain a perpetual license to any of our pre-existing tools, libraries, or methodologies incorporated into them.",
+    "walk_away": false
+  },
+  {
+    "clause_type": "ip",
+    "position_rank": 2,
+    "position_text": "We will grant a broad, perpetual, sublicensable license to deliverables without assigning underlying ownership, if the counterparty requires certainty of use rather than formal title.",
+    "walk_away": false
+  },
+  {
+    "clause_type": "ip",
+    "position_rank": 3,
+    "position_text": "Walk away if the counterparty demands blanket ownership of all derivative works and improvements, including those built from our pre-existing IP, with no license-back and no carve-out for our own tools.",
+    "walk_away": true
+  },
+  {
+    "clause_type": "data_processing",
+    "position_rank": 0,
+    "position_text": "Processing occurs solely on the controller's documented instructions, with security safeguards equivalent to the controller's own, breach notification within seventy-two (72) hours, and no sub-processor engagement without prior written consent, consistent with the Digital Personal Data Protection Act.",
+    "walk_away": false
+  },
+  {
+    "clause_type": "data_processing",
+    "position_rank": 1,
+    "position_text": "We will accept a longer breach-notification window of up to five (5) business days if the counterparty commits in writing to documented processing instructions and equivalent security safeguards.",
+    "walk_away": false
+  },
+  {
+    "clause_type": "data_processing",
+    "position_rank": 2,
+    "position_text": "As a last resort, we will accept generic sub-processor consent (advance notice with a right to object) in place of prior written consent, provided processing instructions and breach notification commitments remain intact.",
+    "walk_away": false
+  },
+  {
+    "clause_type": "data_processing",
+    "position_rank": 3,
+    "position_text": "Walk away if the counterparty will not commit in writing to processing only on our instructions and to notifying us of a personal data breach \u2014 these two elements are non-negotiable under the Digital Personal Data Protection Act.",
+    "walk_away": true
+  },
+  {
+    "clause_type": "limitation_of_liability",
+    "position_rank": 0,
+    "position_text": "Aggregate liability for each party is capped at twelve (12) months of fees paid, with carve-outs for indemnification, confidentiality breaches, and willful misconduct; neither party is liable for consequential or punitive damages.",
+    "walk_away": false
+  },
+  {
+    "clause_type": "limitation_of_liability",
+    "position_rank": 1,
+    "position_text": "We will accept a cap as low as six (6) months of fees paid only if the carve-outs for indemnification, confidentiality, and willful misconduct remain fully uncapped.",
+    "walk_away": false
+  },
+  {
+    "clause_type": "limitation_of_liability",
+    "position_rank": 2,
+    "position_text": "As a last resort, we will accept a cap set at the total contract value rather than a rolling twelve-month fee window, provided consequential and punitive damages remain excluded.",
+    "walk_away": false
+  },
+  {
+    "clause_type": "limitation_of_liability",
+    "position_rank": 3,
+    "position_text": "Walk away if the counterparty demands an uncapped liability exposure for us while capping their own liability at a nominal, token amount \u2014 this asymmetry is not acceptable at any deal size.",
+    "walk_away": true
+  },
+  {
+    "clause_type": "termination",
+    "position_rank": 0,
+    "position_text": "Either party may terminate for uncured material breach following thirty (30) days' written notice, or for convenience upon ninety (90) days' prior written notice.",
+    "walk_away": false
+  },
+  {
+    "clause_type": "termination",
+    "position_rank": 1,
+    "position_text": "We will accept a shorter cure period of fifteen (15) days for material breach if the counterparty agrees to at least sixty (60) days' notice for termination for convenience.",
+    "walk_away": false
+  },
+  {
+    "clause_type": "termination",
+    "position_rank": 2,
+    "position_text": "As a last resort, we will accept termination for convenience on thirty (30) days' notice if a minimum committed term of twelve (12) months is included to protect revenue predictability.",
+    "walk_away": false
+  },
+  {
+    "clause_type": "termination",
+    "position_rank": 3,
+    "position_text": "Walk away if the counterparty demands the right to terminate for convenience immediately or on notice of less than thirty (30) days, with no minimum term and no cure period for breach.",
+    "walk_away": true
+  },
+  {
+    "clause_type": "confidentiality",
+    "position_rank": 0,
+    "position_text": "Confidential Information is protected for five (5) years after disclosure, or for as long as it remains a trade secret, subject to standard exceptions for public, independently developed, or third-party-sourced information.",
+    "walk_away": false
+  },
+  {
+    "clause_type": "confidentiality",
+    "position_rank": 1,
+    "position_text": "We will accept a shorter three (3) year protection period for general Confidential Information provided trade secrets remain protected for as long as they qualify as trade secrets under applicable law.",
+    "walk_away": false
+  },
+  {
+    "clause_type": "confidentiality",
+    "position_rank": 2,
+    "position_text": "As a last resort, we will accept a flat three (3) year term applicable to all Confidential Information including trade secrets, if that is the counterparty's firm ceiling.",
+    "walk_away": false
+  },
+  {
+    "clause_type": "confidentiality",
+    "position_rank": 3,
+    "position_text": "Walk away if the counterparty refuses any defined survival period for confidentiality obligations, or refuses standard exceptions for public and independently developed information \u2014 an open-ended, exception-free obligation is unworkable.",
+    "walk_away": true
+  },
+  {
+    "clause_type": "payment",
+    "position_rank": 0,
+    "position_text": "Invoices are payable net thirty (30) days from receipt, with interest of one percent (1%) per month on undisputed late amounts and suspension of Services only after thirty (30) days' written notice of non-payment.",
+    "walk_away": false
+  },
+  {
+    "clause_type": "payment",
+    "position_rank": 1,
+    "position_text": "We will accept net fifteen (15) day payment terms if the counterparty requires faster cash cycles, provided the notice-and-cure period before suspension remains at least fifteen (15) days.",
+    "walk_away": false
+  },
+  {
+    "clause_type": "payment",
+    "position_rank": 2,
+    "position_text": "As a last resort, we will accept a modest upfront deposit of up to twenty-five percent (25%) of first-year fees, with the remainder on standard net thirty (30) day terms.",
+    "walk_away": false
+  },
+  {
+    "clause_type": "payment",
+    "position_rank": 3,
+    "position_text": "Walk away if the counterparty demands full payment upfront with no cure period before service suspension and punitive late fees exceeding two percent (2%) per month \u2014 these terms shift all commercial risk onto us.",
+    "walk_away": true
+  },
+  {
+    "clause_type": "dispute_resolution",
+    "position_rank": 0,
+    "position_text": "Disputes are resolved by binding arbitration in a neutral, mutually agreed venue under a recognized international arbitral institution's rules, with both parties participating in arbitrator selection.",
+    "walk_away": false
+  },
+  {
+    "clause_type": "dispute_resolution",
+    "position_rank": 1,
+    "position_text": "We will accept arbitration seated in the counterparty's home jurisdiction if we retain an equal role in selecting the arbitrator and the applicable substantive law remains neutral or mutually agreed.",
+    "walk_away": false
+  },
+  {
+    "clause_type": "dispute_resolution",
+    "position_rank": 2,
+    "position_text": "As a last resort, we will accept litigation in the counterparty's home courts if arbitration is entirely off the table, provided we retain the right to seek injunctive relief in any jurisdiction for IP or confidentiality breaches.",
+    "walk_away": false
+  },
+  {
+    "clause_type": "dispute_resolution",
+    "position_rank": 3,
+    "position_text": "Walk away if the counterparty insists on sole control over arbitrator selection or on a venue and governing law entirely of its own choosing with no neutral element whatsoever.",
+    "walk_away": true
+  },
+  {
+    "clause_type": "auto_renewal",
+    "position_rank": 0,
+    "position_text": "This Agreement renews automatically for successive one (1) year terms absent thirty (30) days' written notice of non-renewal from either party, with any renewal fee increase capped at five percent (5%) or communicated with sixty (60) days' notice.",
+    "walk_away": false
+  },
+  {
+    "clause_type": "auto_renewal",
+    "position_rank": 1,
+    "position_text": "We will accept a ninety (90) day non-renewal notice window if the counterparty commits to a hard cap on renewal-term fee increases rather than sole-discretion pricing.",
+    "walk_away": false
+  },
+  {
+    "clause_type": "auto_renewal",
+    "position_rank": 2,
+    "position_text": "As a last resort, we will accept sole-discretion fee increases for renewal terms if we retain at least a sixty (60) day advance-notice right before any increase takes effect.",
+    "walk_away": false
+  },
+  {
+    "clause_type": "auto_renewal",
+    "position_rank": 3,
+    "position_text": "Walk away if the counterparty demands a non-renewal notice window longer than one hundred twenty (120) days combined with unrestricted, sole-discretion fee increases on renewal \u2014 that combination is a lock-in with no exit.",
+    "walk_away": true
+  }
+]
