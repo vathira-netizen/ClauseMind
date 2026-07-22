@@ -12,7 +12,15 @@ agents to call each other directly.
 
 from __future__ import annotations
 
+import os
+
 from google.adk.agents import SequentialAgent
+
+from precedent.config import get_settings
+
+# Google ADK discovers the Gemini key from the process environment, while the
+# application configuration loads it from .env through pydantic-settings.
+os.environ.setdefault("GOOGLE_API_KEY", get_settings().google_api_key.get_secret_value())
 
 from precedent.agents.analysis import analysis_stage
 from precedent.agents.composer import _run_hallucination_gate, composer

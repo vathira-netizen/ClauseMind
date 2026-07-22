@@ -1,9 +1,5 @@
-"""HTTP API.
+"""HTTP API for local and deployed ClauseMind review surfaces."""
 
-FastAPI application exposing the ingest / analyze / recall surface over the
-agent pipeline and institutional memory.
-"""
+from precedent.api.main import app
 
-from __future__ import annotations
-
-__all__: list[str] = []
+__all__ = ["app"]

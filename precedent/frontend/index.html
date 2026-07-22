@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ClauseMind Review Console</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f4fbf6;
+        --panel: #ffffff;
+        --panel-2: #f7fff9;
+        --border: #dcefe2;
+        --text: #163523;
+        --muted: #5d7768;
+        --accent: #1f8f4f;
+        --accent-2: #7ed49a;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+        background: linear-gradient(135deg, #f4fbf6 0%, #ecf8ef 100%);
+        color: var(--text);
+      }
+      .shell {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 2rem 1.25rem 3rem;
+      }
+      .hero {
+        display: grid;
+        grid-template-columns: 1.3fr 0.7fr;
+        gap: 1.25rem;
+        margin-bottom: 1.25rem;
+      }
+      .card {
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 20px;
+        box-shadow: 0 14px 40px rgba(19, 53, 35, 0.08);
+      }
+      .hero-card { padding: 1.5rem; }
+      .hero h1 { margin: 0 0 0.5rem; font-size: 2rem; }
+      .hero p { margin: 0; color: var(--muted); line-height: 1.6; }
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.35rem 0.7rem;
+        border-radius: 999px;
+        background: #eaf9ee;
+        color: var(--accent);
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-bottom: 0.8rem;
+      }
+      .stats {
+        display: grid;
+        gap: 0.75rem;
+      }
+      .stat-box { padding: 1rem; background: var(--panel-2); border: 1px solid var(--border); border-radius: 16px; }
+      .stat-box strong { display: block; font-size: 1.2rem; margin-top: 0.2rem; }
+      .workspace {
+        display: grid;
+        grid-template-columns: 0.95fr 1.05fr;
+        gap: 1.25rem;
+      }
+      .panel { padding: 1.25rem; }
+      label { display: block; font-weight: 600; margin-bottom: 0.4rem; }
+      input, textarea {
+        width: 100%;
+        padding: 0.8rem 0.9rem;
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        background: var(--panel-2);
+        color: var(--text);
+        font-size: 0.96rem;
+      }
+      textarea { min-height: 110px; resize: vertical; }
+      .row { display: flex; gap: 0.75rem; margin-top: 0.9rem; flex-wrap: wrap; }
+      button {
+        background: linear-gradient(135deg, var(--accent) 0%, #2da95f 100%);
+        color: white;
+        border: none;
+        border-radius: 999px;
+        padding: 0.8rem 1.15rem;
+        font-size: 0.95rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: transform 120ms ease, box-shadow 120ms ease;
+        box-shadow: 0 8px 18px rgba(31, 143, 79, 0.15);
+      }
+      button:hover { transform: translateY(-1px); }
+      .status {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        padding: 0.45rem 0.7rem;
+        border-radius: 999px;
+        margin-bottom: 0.8rem;
+        font-size: 0.92rem;
+        font-weight: 600;
+      }
+      .status.ready { background: #eaf9ee; color: var(--accent); }
+      .status.loading { background: #fff7d9; color: #8f6a00; }
+      .status.error { background: #fdecec; color: #b21f1f; }
+      .meta { color: var(--muted); font-size: 0.95rem; margin-top: 0.75rem; }
+      pre {
+        margin: 0;
+        white-space: pre-wrap;
+        word-break: break-word;
+        background: #0f1720;
+        color: #ecfdf3;
+        padding: 1rem;
+        border-radius: 14px;
+        font-size: 0.9rem;
+        line-height: 1.45;
+      }
+      .badge { display: inline-block; padding: 0.2rem 0.5rem; background: #eefcf3; color: var(--accent); border-radius: 999px; font-weight: 600; font-size: 0.8rem; margin-left: 0.4rem; }
+      @media (max-width: 900px) { .hero, .workspace { grid-template-columns: 1fr; } }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <section class="hero">
+        <div class="card hero-card">
+          <div class="pill">● Local contract review console</div>
+          <h1>ClauseMind Review Workspace</h1>
+          <p>Run the local review pipeline, inspect the generated findings, and review the evidence returned by Qdrant-backed retrieval in one polished workspace.</p>
+          <div class="row">
+            <button id="runButton">Run review</button>
+            <button id="resetButton" style="background: #fff; color: var(--accent); border: 1px solid var(--border); box-shadow: none;">Reset sample</button>
+          </div>
+          <div class="meta" id="metaText">Ready to inspect the bundled Meridian sample contract.</div>
+        </div>
+        <div class="stats">
+          <div class="card stat-box">
+            <span>Review state</span>
+            <strong id="stateValue">Idle</strong>
+          </div>
+          <div class="card stat-box">
+            <span>Clauses analyzed</span>
+            <strong id="clauseValue">—</strong>
+          </div>
+          <div class="card stat-box">
+            <span>Release status</span>
+            <strong id="releaseValue">—</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="workspace">
+        <div class="card panel">
+          <div id="status" class="status ready">● Ready</div>
+          <label for="documentPath">Document path</label>
+          <input id="documentPath" value="data/synthetic/incoming/incoming_meridian.json" />
+
+          <label for="notes" style="margin-top: 0.9rem;">Review notes</label>
+          <textarea id="notes" placeholder="Add context for the current review…">Local review request from ClauseMind UI.</textarea>
+        </div>
+
+        <div class="card panel">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.7rem;">
+            <h3 style="margin:0;">Live response</h3>
+            <span class="badge" id="responseBadge">JSON</span>
+          </div>
+          <pre id="result">Select a document and run the review to see the response object.</pre>
+        </div>
+      </section>
+    </div>
+
+    <script>
+      const runButton = document.getElementById('runButton');
+      const resetButton = document.getElementById('resetButton');
+      const result = document.getElementById('result');
+      const documentPath = document.getElementById('documentPath');
+      const status = document.getElementById('status');
+      const metaText = document.getElementById('metaText');
+      const stateValue = document.getElementById('stateValue');
+      const clauseValue = document.getElementById('clauseValue');
+      const releaseValue = document.getElementById('releaseValue');
+      const notes = document.getElementById('notes');
+
+      const defaultPath = 'data/synthetic/incoming/incoming_meridian.json';
+
+      function setStatus(kind, text) {
+        status.className = `status ${kind}`;
+        status.textContent = `● ${text}`;
+      }
+
+      function renderSummary(data) {
+        stateValue.textContent = data.mode || 'Local';
+        clauseValue.textContent = data.clauses ? data.clauses.length : '0';
+        releaseValue.textContent = data.release_status || '—';
+        const note = notes.value ? `Notes: ${notes.value}` : 'No notes provided';
+        metaText.textContent = `${note} • Review ID ${data.review_id || 'pending'}`;
+      }
+
+      resetButton.addEventListener('click', () => {
+        documentPath.value = defaultPath;
+        notes.value = 'Local review request from ClauseMind UI.';
+        result.textContent = 'Sample inputs restored.';
+        setStatus('ready', 'Ready');
+        stateValue.textContent = 'Idle';
+        clauseValue.textContent = '—';
+        releaseValue.textContent = '—';
+        metaText.textContent = 'Ready to inspect the bundled Meridian sample contract.';
+      });
+
+      runButton.addEventListener('click', async () => {
+        setStatus('loading', 'Running review...');
+        result.textContent = 'Connecting to the local review API...';
+        try {
+          const response = await fetch('/api/review', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ document_path: documentPath.value })
+          });
+          const data = await response.json();
+          result.textContent = JSON.stringify(data, null, 2);
+          renderSummary(data);
+          setStatus('ready', 'Review complete');
+        } catch (error) {
+          result.textContent = 'Request failed: ' + error.message;
+          setStatus('error', 'Request failed');
+        }
+      });
+    </script>
+  </body>
+</html>

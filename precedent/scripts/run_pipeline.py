@@ -20,6 +20,7 @@ from rich.console import Console
 from rich.pretty import Pretty
 
 from precedent.agents.root import root_agent
+from precedent.config import get_settings
 from precedent.governance import approval_gate, audit_log, pii_redactor
 from precedent.memory import retrieval
 from precedent.models import Clause
@@ -45,7 +46,7 @@ def _redacted_document_path(document_path: str) -> str:
 
 
 async def _run_pipeline(document_path: str) -> dict:
-    if not __import__("os").environ.get("GOOGLE_API_KEY"):
+    if not get_settings().google_api_key.get_secret_value():
         return _local_fallback(document_path)
     session_service = InMemorySessionService()
     session = await session_service.create_session(app_name=APP_NAME, user_id=USER_ID)
