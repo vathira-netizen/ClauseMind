@@ -3,6 +3,9 @@
 This is the **only** module in this codebase that imports ``qdrant_client``.
 Every other layer (agents, governance, api) reaches memory exclusively
 through the functions exposed here, never through the client directly.
+``memory/retrieval.py`` is the one exception, as a sibling within this same
+subsystem: it builds queries on top of :func:`query_hybrid`/:func:`query_dense`
+and never imports ``qdrant_client`` itself.
 
 Three collections:
 
@@ -30,9 +33,13 @@ from qdrant_client.http.models import (
     Distance,
     FieldCondition,
     Filter,
+    Fusion,
+    FusionQuery,
     MatchValue,
     PayloadSchemaType,
     PointStruct,
+    Prefetch,
+    ScoredPoint,
     SparseVector,
     SparseVectorParams,
     VectorParams,
@@ -71,6 +78,16 @@ def _embed_sparse(texts: list[str]) -> list[SparseVector]:
         SparseVector(indices=vec.indices.tolist(), values=vec.values.tolist())
         for vec in _sparse_model.embed(texts)
     ]
+
+
+def embed_query(text: str) -> tuple[list[float], SparseVector]:
+    """Embed a single query string as both a dense and a sparse vector.
+
+    Used by :mod:`precedent.memory.retrieval` to build hybrid queries
+    without that module needing its own embedding models or fastembed import.
+    """
+
+    return _embed_dense([text])[0], _embed_sparse([text])[0]
 
 
 def _coerce_date(value: Any) -> Any:
@@ -347,3 +364,62 @@ def health() -> dict[str, int]:
     for name in _ALL_COLLECTIONS:
         counts[name] = client.count(name, exact=True).count if client.collection_exists(name) else 0
     return counts
+
+
+def _equality_filter(**equals: Any) -> Filter | None:
+    """Build an equality-only Filter from field=value keyword arguments.
+
+    Fields whose value is None are omitted, so callers can pass an optional
+    constraint straight through without an if-branch. Returns None (no
+    filter) if every value was None.
+    """
+
+    conditions = [
+        FieldCondition(key=field, match=MatchValue(value=value))
+        for field, value in equals.items()
+        if value is not None
+    ]
+    return Filter(must=conditions) if conditions else None
+
+
+def query_hybrid(
+    collection: str, dense_vector: list[float], sparse_vector: SparseVector, limit: int, **filters: Any
+) -> list[ScoredPoint]:
+    """Run a hybrid dense+sparse query fused by Reciprocal Rank Fusion.
+
+    Both vector legs are prefetched to a wide candidate pool (30) and fused
+    by RRF. ``filters`` are equality constraints (e.g. ``clause_type=...,
+    tenant_id=...``); Qdrant applies them as a single ``query_filter`` DURING
+    HNSW traversal on both legs rather than post-filtering an unfiltered
+    top-k, which is what keeps filtered recall from degrading as
+    clause_memory grows.
+    """
+
+    return _client().query_points(
+        collection_name=collection,
+        prefetch=[
+            Prefetch(query=dense_vector, using="dense", limit=30),
+            Prefetch(query=sparse_vector, using="sparse", limit=30),
+        ],
+        query=FusionQuery(fusion=Fusion.RRF),
+        query_filter=_equality_filter(**filters),
+        limit=limit,
+        with_payload=True,
+    ).points
+
+
+def query_dense(collection: str, dense_vector: list[float], limit: int, **filters: Any) -> list[ScoredPoint]:
+    """Run a dense-only similarity query against a collection's ``dense`` vector.
+
+    Used for the ``playbook`` collection, which carries no sparse leg.
+    ``filters`` are equality constraints, same as :func:`query_hybrid`.
+    """
+
+    return _client().query_points(
+        collection_name=collection,
+        query=dense_vector,
+        using="dense",
+        query_filter=_equality_filter(**filters),
+        limit=limit,
+        with_payload=True,
+    ).points
