@@ -1,0 +1,2 @@
+# ClauseMind
+Financial fraud detector
