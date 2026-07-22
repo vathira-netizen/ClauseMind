@@ -147,11 +147,14 @@ src/precedent/
 
 ## Status
 
-This repository currently contains **scaffold and domain models only**. No
-agent, retrieval, or API logic has been implemented. `memory/`, `agents/`,
-`governance/`, `api/`, and `telemetry/` are empty packages with docstrings
-describing their intended responsibility — treat any code beyond that as not
-yet built.
+Built so far: `memory/` (Qdrant schema, corpus seeding, hybrid retrieval,
+retrieval ablation harness) and the first three pipeline stages in `agents/`
+— Intake & Segmentation, Precedent Retrieval, and the analysis
+`ParallelAgent` (Deviation & Risk Worker + DPDP Compliance Checker),
+wired into `precedent_pipeline` in `agents/root.py`. Not yet built: the
+Drafter/Citation Critic `LoopAgent`, Report Composer, `governance/`,
+`api/`, and `telemetry/` — those remain empty packages with docstrings
+describing their intended responsibility.
 
 ## Getting started
 

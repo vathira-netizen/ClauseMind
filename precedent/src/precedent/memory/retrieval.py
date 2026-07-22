@@ -33,6 +33,30 @@ def _to_precedent(hit: Any) -> Precedent:
     )
 
 
+COUNTERPARTY_MATCH_THRESHOLD = 0.9
+
+
+def resolve_counterparty_id(name: str) -> str | None:
+    """Resolve a counterparty display name to its internal counterparty_id.
+
+    Bridges an incoming document's extracted party name (e.g. "Meridian
+    Systems") to the slug clause_memory/counterparty_profiles key it's
+    stored under (e.g. "meridian-systems"). A name we've genuinely seen
+    before scores far above the threshold (empirically ~1.0 for an exact
+    match vs. ~0.6-0.7 for an unrelated name); returns None below that
+    threshold rather than guessing, since a low-confidence match would
+    silently attribute a stranger's history to the wrong counterparty. None
+    is the correct, expected result for a genuinely new counterparty with no
+    negotiation history on file — not an error.
+    """
+
+    dense_vec = store.embed_dense_query(name)
+    hits = store.query_dense(store.COUNTERPARTY_PROFILES, dense_vec, limit=1)
+    if not hits or hits[0].score < COUNTERPARTY_MATCH_THRESHOLD:
+        return None
+    return hits[0].payload["counterparty_id"]
+
+
 def find_similar_clauses(
     clause_text: str, clause_type: str, tenant_id: str, k: int = 5
 ) -> list[Precedent]:

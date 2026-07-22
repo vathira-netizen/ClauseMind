@@ -4,13 +4,16 @@ from __future__ import annotations
 
 from uuid import uuid4
 
+import pytest
+from pydantic import ValidationError
+
 from precedent.models import (
     Claim,
     ClauseAnalysis,
     ClauseType,
-    ComplianceStatus,
     DeviationClass,
     DPDPFinding,
+    DPDPSeverity,
     NegotiationOutcome,
     RedlineDraft,
     ReviewReport,
@@ -69,8 +72,8 @@ def test_review_report_aggregates_pipeline_outputs() -> None:
         clause_analyses=[
             ClauseAnalysis(
                 clause_id=clause_id,
-                deviation_class=DeviationClass.UNFAVORABLE,
-                risk_score=0.8,
+                deviation_class=DeviationClass.NEVER_SEEN,
+                risk_score=80,
                 rationale="Uncapped indemnity with no precedent for acceptance.",
                 precedent_ids=["p1"],
             )
@@ -79,12 +82,36 @@ def test_review_report_aggregates_pipeline_outputs() -> None:
             DPDPFinding(
                 clause_id=clause_id,
                 requirement="data_localization",
-                status=ComplianceStatus.NEEDS_REVIEW,
+                severity=DPDPSeverity.HIGH,
                 rationale="Clause does not specify storage location.",
+                remediation="Add a clause requiring in-country data storage.",
             )
         ],
     )
 
     assert report.contract_id == contract_id
-    assert report.clause_analyses[0].risk_score == 0.8
-    assert report.dpdp_findings[0].status is ComplianceStatus.NEEDS_REVIEW
+    assert report.clause_analyses[0].risk_score == 80
+    assert report.dpdp_findings[0].severity is DPDPSeverity.HIGH
+
+
+def test_clause_analysis_rejects_risk_score_with_no_evidence() -> None:
+    with pytest.raises(ValidationError):
+        ClauseAnalysis(
+            clause_id=uuid4(),
+            deviation_class=DeviationClass.NEVER_SEEN,
+            risk_score=50,
+            rationale="Looks risky.",
+        )
+
+
+def test_clause_analysis_allows_no_precedent_found_marker_instead_of_ids() -> None:
+    analysis = ClauseAnalysis(
+        clause_id=uuid4(),
+        deviation_class=DeviationClass.NEVER_SEEN,
+        risk_score=50,
+        rationale="No comparable clause exists in memory.",
+        no_precedent_found=True,
+    )
+
+    assert analysis.precedent_ids == []
+    assert analysis.no_precedent_found is True

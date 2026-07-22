@@ -8,7 +8,7 @@ infrastructure concerns (no Qdrant client calls, no ADK imports).
 Pipeline stage -> model produced:
 
 * Intake & Segmentation      -> :class:`Clause`
-* Precedent Retrieval        -> :class:`Precedent` (attached to a clause)
+* Precedent Retrieval        -> :class:`PrecedentBundle` (per clause, keyed by clause_id)
 * Deviation & Risk Worker    -> :class:`ClauseAnalysis`
 * DPDP Compliance Checker    -> :class:`DPDPFinding`
 * Drafter                    -> :class:`RedlineDraft` (containing :class:`Claim`)
@@ -25,7 +25,7 @@ from datetime import datetime, timezone
 from enum import Enum
 from uuid import UUID, uuid4
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, model_validator
 
 
 def _utcnow() -> datetime:
@@ -65,21 +65,25 @@ class NegotiationOutcome(str, Enum):
 
 
 class DeviationClass(str, Enum):
-    """How a clause deviates from playbook / precedent."""
+    """How familiar a clause is against retrieved precedent and playbook.
+
+    This is a retrieval-familiarity axis, not a substantive-favorability
+    one: it answers "have we seen something like this before, and what
+    happened," not "is this good or bad for us."
+    """
 
     STANDARD = "standard"
-    FAVORABLE = "favorable"
-    UNFAVORABLE = "unfavorable"
-    NOVEL = "novel"
-    MISSING = "missing"
+    NEGOTIATED_BEFORE = "negotiated_before"
+    NEVER_SEEN = "never_seen"
 
 
-class ComplianceStatus(str, Enum):
-    """Outcome of a DPDP compliance check against a single requirement."""
+class DPDPSeverity(str, Enum):
+    """Severity of a single DPDP compliance gap."""
 
-    COMPLIANT = "compliant"
-    NON_COMPLIANT = "non_compliant"
-    NEEDS_REVIEW = "needs_review"
+    LOW = "low"
+    MEDIUM = "medium"
+    HIGH = "high"
+    CRITICAL = "critical"
 
 
 class Clause(BaseModel):
@@ -110,11 +114,28 @@ class ClauseAnalysis(BaseModel):
 
     clause_id: UUID
     deviation_class: DeviationClass
-    risk_score: float = Field(ge=0.0, le=1.0)
-    rationale: str
+    risk_score: float = Field(ge=0, le=100, description="0 (no risk) to 100 (maximum risk).")
+    rationale: str = Field(description="Must name the specific precedent point_ids relied on.")
     precedent_ids: list[str] = Field(
         default_factory=list, description="Qdrant point IDs cited as evidence."
     )
+    no_precedent_found: bool = Field(
+        default=False,
+        description=(
+            "The explicit alternative to citing precedent_ids: set this when no "
+            "supporting precedent exists on file for this clause, rather than "
+            "leaving precedent_ids empty with no explanation."
+        ),
+    )
+
+    @model_validator(mode="after")
+    def _requires_evidence_or_explicit_absence(self) -> ClauseAnalysis:
+        if not self.precedent_ids and not self.no_precedent_found:
+            raise ValueError(
+                "A risk score must cite at least one precedent_id in precedent_ids, "
+                "or set no_precedent_found=True."
+            )
+        return self
 
 
 class Precedent(BaseModel):
@@ -126,6 +147,42 @@ class Precedent(BaseModel):
     negotiation_outcome: NegotiationOutcome
     date: datetime
     score: float = Field(ge=0.0, le=1.0, description="Hybrid (RRF-fused) retrieval score.")
+
+
+class PlaybookPositionEntry(BaseModel):
+    """One ranked position (preferred, fallback, or walk-away) from ``playbook``."""
+
+    point_id: str
+    position_rank: int
+    position_text: str
+    walk_away: bool
+    score: float = Field(description="Cosine similarity to the query clause text.")
+
+
+class PlaybookPositionResult(BaseModel):
+    """The playbook's standing position for one clause type, as returned by
+    :func:`precedent.memory.retrieval.get_playbook_position`."""
+
+    preferred: PlaybookPositionEntry | None = None
+    fallbacks: list[PlaybookPositionEntry] = Field(default_factory=list)
+    walk_away: PlaybookPositionEntry | None = None
+
+
+class PrecedentBundle(BaseModel):
+    """Precedent Retrieval's per-clause output — the retrieval contract.
+
+    ``state["precedents"]`` (see ``agents/retrieval_agent.py``) is a dict
+    keyed by clause_id (the string form of :attr:`Clause.id`), each value
+    one of these bundles. Every entry inside ``similar_clauses``,
+    ``counterparty_history``, and ``playbook_position`` retains its
+    ``point_id`` — the Citation Critic (Phase 6+) verifies every
+    :class:`Claim`'s ``evidence_point_ids`` against exactly these point IDs,
+    so nothing in this structure may drop it.
+    """
+
+    similar_clauses: list[Precedent] = Field(default_factory=list)
+    counterparty_history: list[Precedent] = Field(default_factory=list)
+    playbook_position: PlaybookPositionResult
 
 
 class Claim(BaseModel):
@@ -150,17 +207,25 @@ class RedlineDraft(BaseModel):
 
 
 class DPDPFinding(BaseModel):
-    """Output of the DPDP Compliance Checker for one requirement on one clause.
+    """A single missing checklist element from a data_processing clause.
 
-    Only ever produced for ``data_processing`` clauses.
+    DPDP (India's Digital Personal Data Protection Act) is the regulation
+    being audited against here, not a clause type — see
+    :class:`ClauseType`'s docstring. Only ever produced for clauses of type
+    ``data_processing``, and only for elements judged missing; a compliant
+    checklist element produces no finding at all.
     """
 
     clause_id: UUID
     requirement: str = Field(
-        description="The DPDP provision checked, e.g. 'consent', 'data_localization'."
+        description=(
+            "The specific DPDP checklist element found missing, e.g. "
+            "'processor obligations', 'sub-processor consent'."
+        )
     )
-    status: ComplianceStatus
-    rationale: str
+    severity: DPDPSeverity
+    rationale: str = Field(description="Why this element is judged missing from the clause text.")
+    remediation: str = Field(description="Suggested remediation language to close this gap.")
     citation_ids: list[str] = Field(
         default_factory=list, description="Playbook/regulation citations backing this finding."
     )
