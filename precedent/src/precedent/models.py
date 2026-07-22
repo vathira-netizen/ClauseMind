@@ -86,10 +86,23 @@ class Clause(BaseModel):
     """An atomic, typed segment of a contract, produced by Intake & Segmentation."""
 
     id: UUID = Field(default_factory=uuid4)
-    contract_id: UUID
+    contract_id: UUID | None = Field(
+        default=None,
+        description="Set once this clause is attached to a specific contract record.",
+    )
     clause_type: ClauseType
     text: str
     position: int = Field(description="Ordinal position of the clause within the contract.")
+    heading: str | None = Field(
+        default=None, description="The clause's heading text, if segmentation found one."
+    )
+    suspected_injection: bool = Field(
+        default=False,
+        description=(
+            "Set when the clause text contains apparent instruction-like content "
+            "directed at the reviewing system, rather than genuine contract language."
+        ),
+    )
 
 
 class ClauseAnalysis(BaseModel):

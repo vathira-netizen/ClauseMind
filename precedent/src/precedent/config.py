@@ -37,7 +37,14 @@ class Settings(BaseSettings):
         default=SecretStr(""), description="Lyzr governance layer API key."
     )
     model_name: str = Field(
-        default="gemini-2.0-flash", description="Default LLM used by ADK agents."
+        default="gemini-flash-latest",
+        description=(
+            "Default LLM used by ADK agents. 'gemini-flash-latest' tracks the "
+            "current Gemini Flash release per ADK's own model docs, rather than "
+            "pinning a dated model string that goes stale. Override to a pinned "
+            "version string if deploying against a regional Vertex AI endpoint, "
+            "where the '-latest' alias isn't supported."
+        ),
     )
     jwt_secret: str = Field(
         default="dev-secret-change-me",
