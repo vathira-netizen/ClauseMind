@@ -1,0 +1,8 @@
+{
+  "contract_id": "b7d0df10-9f12-52fe-a3cb-816b8494eac2",
+  "counterparty_name": "Meridian Systems",
+  "effective_date": "2026-09-01",
+  "governing_law": "India",
+  "clauses": [{"position": 0, "clause_type": "limitation_of_liability", "heading": "Limitation Of Liability", "text": "Meridian Systems' aggregate liability shall be capped at fees paid in the preceding thirty days, excluding all consequential damages."}],
+  "full_text": "1. Limitation Of Liability\n\nMeridian Systems' aggregate liability shall be capped at fees paid in the preceding thirty days, excluding all consequential damages."
+}

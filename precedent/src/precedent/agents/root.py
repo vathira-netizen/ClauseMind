@@ -15,11 +15,14 @@ from __future__ import annotations
 from google.adk.agents import SequentialAgent
 
 from precedent.agents.analysis import analysis_stage
+from precedent.agents.composer import _run_hallucination_gate, composer
 from precedent.agents.intake import intake_agent
+from precedent.agents.redline import redline_loop
 from precedent.agents.retrieval_agent import retrieval_agent
 
 root_agent = SequentialAgent(
     name="precedent_pipeline",
     description="Turns a raw contract document into a cited review report.",
-    sub_agents=[intake_agent, retrieval_agent, analysis_stage],
+    sub_agents=[intake_agent, retrieval_agent, analysis_stage, redline_loop, composer],
+    after_agent_callback=_run_hallucination_gate,
 )
