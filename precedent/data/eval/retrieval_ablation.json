@@ -1,0 +1,670 @@
+{
+  "sample_size": 40,
+  "k": 5,
+  "seed": 42,
+  "summary": {
+    "dense": {
+      "recall_at_1": 0.975,
+      "recall_at_5": 1.0,
+      "mrr": 0.9875,
+      "latency_p50_ms": 38.721000077202916,
+      "latency_p95_ms": 56.085299933329225
+    },
+    "sparse": {
+      "recall_at_1": 1.0,
+      "recall_at_5": 1.0,
+      "mrr": 1.0,
+      "latency_p50_ms": 10.991599992848933,
+      "latency_p95_ms": 19.76050005760044
+    },
+    "hybrid": {
+      "recall_at_1": 0.975,
+      "recall_at_5": 1.0,
+      "mrr": 0.9875,
+      "latency_p50_ms": 43.88380004093051,
+      "latency_p95_ms": 55.26689998805523
+    }
+  },
+  "queries": [
+    {
+      "point_id": "dc0980ad-7072-5498-9bf3-3a57453b5bf4",
+      "query_text": "Kestrel Analytics' total cumulative liability under this Agreement, whether in contract, tort, or otherwise, will in no event surpass the greater of one thousand dollars ($1,000) or the fees paid by the Company in the thirty (30) days right away preceding the event giving rise to the assertion, and Kestrel Analytics will have no liability of any kind for consequential damages of any kind.",
+      "dense": {
+        "rank": 1,
+        "latency_ms": 105.8
+      },
+      "sparse": {
+        "rank": 1,
+        "latency_ms": 11.3
+      },
+      "hybrid": {
+        "rank": 1,
+        "latency_ms": 49.91
+      }
+    },
+    {
+      "point_id": "ab835b8f-b85a-557e-8ba7-e99ef12110b7",
+      "query_text": "Notwithstanding any limitation of liability elsewhere in this Agreement, Meridian Systems undertakes to indemnify and hold harmless the Company against all third-party claims, judgments, damages, and sensible charges of defense, arising in whatever manner relating to Meridian Systems' performance under this Agreement, with no cap, deductible, or time limitation applicable to this indemnification duty, which will survive for an unlimited duration.",
+      "dense": {
+        "rank": 1,
+        "latency_ms": 38.08
+      },
+      "sparse": {
+        "rank": 1,
+        "latency_ms": 13.8
+      },
+      "hybrid": {
+        "rank": 1,
+        "latency_ms": 48.76
+      }
+    },
+    {
+      "point_id": "f6ee54df-94e4-533d-b872-064fd0a0cf68",
+      "query_text": "This Agreement will automatically renew for consecutive one (1) year terms unless the Company provides notice in writing of non-renewal no fewer than ninety (90) days, but no more than one hundred twenty (120) days, before the end of the then-current term, and Nimbus Robotics may increase fees for any renewal term in its sole discretion upon notice to the Company.",
+      "dense": {
+        "rank": 1,
+        "latency_ms": 42.23
+      },
+      "sparse": {
+        "rank": 1,
+        "latency_ms": 12.95
+      },
+      "hybrid": {
+        "rank": 1,
+        "latency_ms": 39.44
+      }
+    },
+    {
+      "point_id": "7749a241-4f21-5d8c-9ecc-82f2f9e88823",
+      "query_text": "Upon expiry of the initial term, this Agreement renews automatically for consecutive one (1) year terms absent notice in writing of non-renewal sent by any party no fewer than thirty (30) days before the renewal date, and Nimbus Robotics will provide the Company no fewer than sixty (60) days' advance notice of any fee increase applicable to the renewal term.",
+      "dense": {
+        "rank": 1,
+        "latency_ms": 34.03
+      },
+      "sparse": {
+        "rank": 1,
+        "latency_ms": 8.97
+      },
+      "hybrid": {
+        "rank": 1,
+        "latency_ms": 38.75
+      }
+    },
+    {
+      "point_id": "ae4f4d19-8bdc-504b-acc3-7f33e86fff7a",
+      "query_text": "All invoices are due upon receipt, and any invoice not paid within five (5) days will accrue a late fee of two percent (2%) per month and entitle Ferrovia Logistics to suspend all Services right away, without further notice, until payment in full, including accrued late fees, is obtained.",
+      "dense": {
+        "rank": 1,
+        "latency_ms": 42.35
+      },
+      "sparse": {
+        "rank": 1,
+        "latency_ms": 13.18
+      },
+      "hybrid": {
+        "rank": 1,
+        "latency_ms": 43.88
+      }
+    },
+    {
+      "point_id": "a55109ad-f302-5aab-9927-8bcb44a4d526",
+      "query_text": "All information shared by Solace Health Partners to the Company, whether marked confidential or not, will be considered Confidential Information, and the Company will hold such information in strict confidence for an unlimited duration, with no exceptions for information that becomes public through no fault of the Company.",
+      "dense": {
+        "rank": 1,
+        "latency_ms": 33.89
+      },
+      "sparse": {
+        "rank": 1,
+        "latency_ms": 10.36
+      },
+      "hybrid": {
+        "rank": 1,
+        "latency_ms": 33.52
+      }
+    },
+    {
+      "point_id": "941f60ac-7a67-554e-b97e-c0e0d60a3b2f",
+      "query_text": "Kestrel Analytics will indemnify, defend, and hold harmless the Company and its officers, directors, employees, and agents from and against all assertions, losses, damages, liabilities, charges, and outlays, including reasonable attorneys' fees, arising out of or in any way related to this Agreement, without restriction as to amount or type of damages, and notwithstanding the foregoing, such duty will survive termination of this Agreement without end and will not be subject to any cap on liability specified elsewhere in this Agreement.",
+      "dense": {
+        "rank": 1,
+        "latency_ms": 56.9
+      },
+      "sparse": {
+        "rank": 1,
+        "latency_ms": 10.24
+      },
+      "hybrid": {
+        "rank": 1,
+        "latency_ms": 46.94
+      }
+    },
+    {
+      "point_id": "3389dbb6-4036-57f1-8bf9-58e28c52559d",
+      "query_text": "Termination for cause requires notice in writing specifying the violation and a thirty (30) day cure period; termination for convenience is not permitted during the initial term and thereafter requires one hundred twenty (120) days' prior notice in writing, consistent with the Company's standard terms.",
+      "dense": {
+        "rank": 1,
+        "latency_ms": 43.7
+      },
+      "sparse": {
+        "rank": 1,
+        "latency_ms": 8.43
+      },
+      "hybrid": {
+        "rank": 1,
+        "latency_ms": 55.27
+      }
+    },
+    {
+      "point_id": "71d62555-bd41-53ca-87e9-16354509405c",
+      "query_text": "Tidewater Finance may end this Agreement for convenience at any time, with or without cause, following notice in writing to the Company, effective as soon as such notice, and Tidewater Finance will have no duty to provide the Company any cure period or opportunity to remedy any alleged violation before termination.",
+      "dense": {
+        "rank": 1,
+        "latency_ms": 47.14
+      },
+      "sparse": {
+        "rank": 1,
+        "latency_ms": 12.64
+      },
+      "hybrid": {
+        "rank": 1,
+        "latency_ms": 34.08
+      }
+    },
+    {
+      "point_id": "c4386768-941f-50ae-9934-57a72f75d65a",
+      "query_text": "All information shared by Meridian Systems to the Company, whether marked confidential or not, will be considered Confidential Information, and the Company will hold such information in strict confidence for an unlimited duration, with no exceptions for information that becomes public through no fault of the Company.",
+      "dense": {
+        "rank": 1,
+        "latency_ms": 27.9
+      },
+      "sparse": {
+        "rank": 1,
+        "latency_ms": 8.83
+      },
+      "hybrid": {
+        "rank": 1,
+        "latency_ms": 53.03
+      }
+    },
+    {
+      "point_id": "a8048285-f4ae-5452-8aa2-c703bc3ae524",
+      "query_text": "Meridian Systems grants the Company a limited, non-exclusive, non-transferable license to use Meridian Systems' intellectual property exclusively as needed to perform its duties under this Agreement, and no other rights are granted, whether by implication, estoppel, or otherwise, notwithstanding any customization performed at the Company's request.",
+      "dense": {
+        "rank": 1,
+        "latency_ms": 42.57
+      },
+      "sparse": {
+        "rank": 1,
+        "latency_ms": 10.89
+      },
+      "hybrid": {
+        "rank": 1,
+        "latency_ms": 35.71
+      }
+    },
+    {
+      "point_id": "d4756dcf-fdeb-522f-afd3-4ab278eb263b",
+      "query_text": "The Company will own all deliverables specifically created for Kestrel Analytics under a Statement of Work and paid for in full, on the condition that Kestrel Analytics retains a perpetual, irrevocable license to any of the Company's pre-existing tools, libraries, or methodologies incorporated therein.",
+      "dense": {
+        "rank": 1,
+        "latency_ms": 36.27
+      },
+      "sparse": {
+        "rank": 1,
+        "latency_ms": 12.79
+      },
+      "hybrid": {
+        "rank": 1,
+        "latency_ms": 34.81
+      }
+    },
+    {
+      "point_id": "9da70f02-7015-527d-b3be-6ea8cef7f997",
+      "query_text": "The Company will indemnify Ferrovia Logistics exclusively for direct damages arising from a third party's assertion that the unmodified Services, as sent, infringe such third party's registered intellectual property rights, on the condition that Ferrovia Logistics without delay informs the Company of the assertion and allows the Company, at its own expense, to control the defense and any settlement thereof.",
+      "dense": {
+        "rank": 1,
+        "latency_ms": 46.99
+      },
+      "sparse": {
+        "rank": 1,
+        "latency_ms": 19.76
+      },
+      "hybrid": {
+        "rank": 1,
+        "latency_ms": 40.3
+      }
+    },
+    {
+      "point_id": "9b29aed9-3a6c-5af6-9e36-9cae051b7a24",
+      "query_text": "Notwithstanding any limitation of liability elsewhere in this Agreement, Ferrovia Logistics undertakes to indemnify and hold harmless the Company against all third-party claims, judgments, damages, and sensible charges of defense, arising in whatever manner relating to Ferrovia Logistics' performance under this Agreement, with no cap, deductible, or time limitation applicable to this indemnification duty, which will survive for an unlimited duration.",
+      "dense": {
+        "rank": 1,
+        "latency_ms": 41.17
+      },
+      "sparse": {
+        "rank": 1,
+        "latency_ms": 9.85
+      },
+      "hybrid": {
+        "rank": 1,
+        "latency_ms": 38.55
+      }
+    },
+    {
+      "point_id": "69a62e44-3d03-579b-a710-9b54cb754888",
+      "query_text": "Praxis Consulting's total cumulative liability under this Agreement, whether in contract, tort, or otherwise, will in no event surpass the greater of one thousand dollars ($1,000) or the fees paid by the Company in the thirty (30) days right away preceding the event giving rise to the assertion, and Praxis Consulting will have no liability of any kind for consequential damages of any kind.",
+      "dense": {
+        "rank": 1,
+        "latency_ms": 34.73
+      },
+      "sparse": {
+        "rank": 1,
+        "latency_ms": 12.21
+      },
+      "hybrid": {
+        "rank": 1,
+        "latency_ms": 45.15
+      }
+    },
+    {
+      "point_id": "748ab35b-714b-5346-b793-f52fb97002a7",
+      "query_text": "Any party may end this Agreement as soon as notice in writing if the other party violates any provision of this Agreement, without any duty to provide advance notice or an opportunity to cure, and Nimbus Robotics reserves the right to end for convenience upon no less than zero (0) days' prior notice.",
+      "dense": {
+        "rank": 1,
+        "latency_ms": 30.63
+      },
+      "sparse": {
+        "rank": 1,
+        "latency_ms": 9.01
+      },
+      "hybrid": {
+        "rank": 1,
+        "latency_ms": 32.44
+      }
+    },
+    {
+      "point_id": "c59698a1-937a-5c47-8f7d-4c31345abde9",
+      "query_text": "This Agreement will automatically renew for consecutive one (1) year terms unless the Company provides notice in writing of non-renewal no fewer than ninety (90) days, but no more than one hundred twenty (120) days, before the end of the then-current term, and Kestrel Analytics may increase fees for any renewal term in its sole discretion upon notice to the Company.",
+      "dense": {
+        "rank": 1,
+        "latency_ms": 38.23
+      },
+      "sparse": {
+        "rank": 1,
+        "latency_ms": 10.37
+      },
+      "hybrid": {
+        "rank": 1,
+        "latency_ms": 39.41
+      }
+    },
+    {
+      "point_id": "ecb3a4cb-77b4-542a-bfa2-ebe021ec72b7",
+      "query_text": "Any party may end this Agreement for material breach upon forty-five (45) days' notice in writing, provided the breaching party has not cured such violation within that period, and any party may end for convenience upon one hundred twenty (120) days' prior notice in writing to the other party.",
+      "dense": {
+        "rank": 1,
+        "latency_ms": 33.67
+      },
+      "sparse": {
+        "rank": 1,
+        "latency_ms": 14.14
+      },
+      "hybrid": {
+        "rank": 1,
+        "latency_ms": 31.71
+      }
+    },
+    {
+      "point_id": "3e4d9f82-75be-5ad0-b578-b65d4ffc4aa4",
+      "query_text": "Subject to the limitation of liability specified in this Agreement, Vantage Industrial will indemnify the Company for direct damages arising from Vantage Industrial's violation of its representations and warranties, on the condition that this duty will not extend to consequential, incidental, or punitive damages, and will be limited to an amount equal to twelve (12) months of fees paid under this Agreement.",
+      "dense": {
+        "rank": 1,
+        "latency_ms": 44.67
+      },
+      "sparse": {
+        "rank": 1,
+        "latency_ms": 9.12
+      },
+      "hybrid": {
+        "rank": 1,
+        "latency_ms": 40.64
+      }
+    },
+    {
+      "point_id": "50c38301-815f-5ade-a9e5-01aee0022e7b",
+      "query_text": "Notwithstanding any limitation of liability elsewhere in this Agreement, Vantage Industrial undertakes to indemnify and hold harmless the Company against all third-party claims, judgments, damages, and sensible charges of defense, arising in whatever manner relating to Vantage Industrial's performance under this Agreement, with no cap, deductible, or time limitation applicable to this indemnification duty, which will survive for an unlimited duration.",
+      "dense": {
+        "rank": 1,
+        "latency_ms": 41.02
+      },
+      "sparse": {
+        "rank": 1,
+        "latency_ms": 13.21
+      },
+      "hybrid": {
+        "rank": 1,
+        "latency_ms": 44.07
+      }
+    },
+    {
+      "point_id": "ff552ce0-d032-5862-8067-e94b0db97f21",
+      "query_text": "The Company will own all deliverables specifically created for Nimbus Robotics under a Statement of Work and paid for in full, on the condition that Nimbus Robotics retains a perpetual, irrevocable license to any of the Company's pre-existing tools, libraries, or methodologies incorporated therein.",
+      "dense": {
+        "rank": 1,
+        "latency_ms": 31.43
+      },
+      "sparse": {
+        "rank": 1,
+        "latency_ms": 9.4
+      },
+      "hybrid": {
+        "rank": 1,
+        "latency_ms": 29.95
+      }
+    },
+    {
+      "point_id": "b5a85997-c748-54fe-a13e-f956ff02bca6",
+      "query_text": "Termination for cause requires notice in writing specifying the violation and a forty-five (45) day cure period; termination for convenience is not permitted during the initial term and thereafter requires ninety (90) days' prior notice in writing, consistent with the Company's standard terms.",
+      "dense": {
+        "rank": 1,
+        "latency_ms": 35.39
+      },
+      "sparse": {
+        "rank": 1,
+        "latency_ms": 11.97
+      },
+      "hybrid": {
+        "rank": 1,
+        "latency_ms": 41.2
+      }
+    },
+    {
+      "point_id": "3dfef5b1-0a8b-5c7a-ae1e-a213ae8b3a82",
+      "query_text": "Praxis Consulting grants the Company a limited, non-exclusive, non-transferable license to use Praxis Consulting's intellectual property exclusively as needed to perform its duties under this Agreement, and no other rights are granted, whether by implication, estoppel, or otherwise, notwithstanding any customization performed at the Company's request.",
+      "dense": {
+        "rank": 1,
+        "latency_ms": 28.56
+      },
+      "sparse": {
+        "rank": 1,
+        "latency_ms": 9.8
+      },
+      "hybrid": {
+        "rank": 1,
+        "latency_ms": 47.06
+      }
+    },
+    {
+      "point_id": "6e3923fe-d634-5ac8-ae4e-699445bda0d3",
+      "query_text": "The Company will pay invoiced fees within thirty (30) days of receipt of a correct invoice, and any undisputed amount not paid within that period will accrue interest at 2% per month, and Praxis Consulting may suspend Services only after providing thirty (30) days' notice in writing of non-payment and an opportunity to cure.",
+      "dense": {
+        "rank": 1,
+        "latency_ms": 38.72
+      },
+      "sparse": {
+        "rank": 1,
+        "latency_ms": 25.23
+      },
+      "hybrid": {
+        "rank": 1,
+        "latency_ms": 46.05
+      }
+    },
+    {
+      "point_id": "a1cf8ad8-4837-5b13-9740-777932a2fe8c",
+      "query_text": "Subject to the limitation of liability specified in this Agreement, Coral Reef Media will indemnify the Company for direct damages arising from Coral Reef Media's violation of its representations and warranties, on the condition that this duty will not extend to consequential, incidental, or punitive damages, and will be limited to an amount equal to twelve (12) months of fees paid under this Agreement.",
+      "dense": {
+        "rank": 1,
+        "latency_ms": 38.37
+      },
+      "sparse": {
+        "rank": 1,
+        "latency_ms": 9.37
+      },
+      "hybrid": {
+        "rank": 1,
+        "latency_ms": 54.38
+      }
+    },
+    {
+      "point_id": "57a5e5b8-3f99-58f0-b787-1cbb30ed438e",
+      "query_text": "The parties agree that any dispute will be submitted to binding arbitration seated solely in Praxis Consulting's principal place of business, with Praxis Consulting exclusively entitled to select the arbitrator, and the arbitrator's decision will be final and non-appealable notwithstanding any manifest error of law.",
+      "dense": {
+        "rank": 1,
+        "latency_ms": 56.09
+      },
+      "sparse": {
+        "rank": 1,
+        "latency_ms": 10.08
+      },
+      "hybrid": {
+        "rank": 1,
+        "latency_ms": 32.83
+      }
+    },
+    {
+      "point_id": "db973763-83c2-50b3-ad0c-6275c87c27a5",
+      "query_text": "The Company will own all deliverables specifically created for Halcyon Biotech under a Statement of Work and paid for in full, on the condition that Halcyon Biotech retains a perpetual, irrevocable license to any of the Company's pre-existing tools, libraries, or methodologies incorporated therein.",
+      "dense": {
+        "rank": 1,
+        "latency_ms": 38.53
+      },
+      "sparse": {
+        "rank": 1,
+        "latency_ms": 17.59
+      },
+      "hybrid": {
+        "rank": 1,
+        "latency_ms": 49.13
+      }
+    },
+    {
+      "point_id": "89006ce7-0f21-5ae9-8513-8619667a59d9",
+      "query_text": "Notwithstanding any limitation of liability elsewhere in this Agreement, Tidewater Finance undertakes to indemnify and hold harmless the Company against all third-party claims, judgments, damages, and sensible charges of defense, arising in whatever manner relating to Tidewater Finance's performance under this Agreement, with no cap, deductible, or time limitation applicable to this indemnification duty, which will survive for an unlimited duration.",
+      "dense": {
+        "rank": 1,
+        "latency_ms": 49.36
+      },
+      "sparse": {
+        "rank": 1,
+        "latency_ms": 9.77
+      },
+      "hybrid": {
+        "rank": 1,
+        "latency_ms": 49.16
+      }
+    },
+    {
+      "point_id": "e8361004-3429-5f99-bb39-b00cf492c5ce",
+      "query_text": "Upon expiry of the initial term, this Agreement renews automatically for consecutive one (1) year terms absent notice in writing of non-renewal sent by any party no fewer than thirty (30) days before the renewal date, and Meridian Systems will provide the Company no fewer than sixty (60) days' advance notice of any fee increase applicable to the renewal term.",
+      "dense": {
+        "rank": 1,
+        "latency_ms": 37.21
+      },
+      "sparse": {
+        "rank": 1,
+        "latency_ms": 11.99
+      },
+      "hybrid": {
+        "rank": 1,
+        "latency_ms": 41.77
+      }
+    },
+    {
+      "point_id": "17a39115-adba-535b-8500-631fab74e536",
+      "query_text": "Halcyon Biotech grants the Company a limited, non-exclusive, non-transferable license to use Halcyon Biotech's intellectual property exclusively as needed to perform its duties under this Agreement, and no other rights are granted, whether by implication, estoppel, or otherwise, notwithstanding any customization performed at the Company's request.",
+      "dense": {
+        "rank": 1,
+        "latency_ms": 41.44
+      },
+      "sparse": {
+        "rank": 1,
+        "latency_ms": 10.99
+      },
+      "hybrid": {
+        "rank": 1,
+        "latency_ms": 49.67
+      }
+    },
+    {
+      "point_id": "48546e6f-8335-5619-8c14-aeab30982f5e",
+      "query_text": "Subject to the limitation of liability specified in this Agreement, Tidewater Finance will indemnify the Company for direct damages arising from Tidewater Finance's violation of its representations and warranties, on the condition that this duty will not extend to consequential, incidental, or punitive damages, and will be limited to an amount equal to six (6) months of fees paid under this Agreement.",
+      "dense": {
+        "rank": 1,
+        "latency_ms": 47.12
+      },
+      "sparse": {
+        "rank": 1,
+        "latency_ms": 29.19
+      },
+      "hybrid": {
+        "rank": 1,
+        "latency_ms": 49.11
+      }
+    },
+    {
+      "point_id": "ad8ccb8e-e4e8-56de-b985-a5d1b6b27d8d",
+      "query_text": "The Company will own all deliverables specifically created for Aurelia Cloud under a Statement of Work and paid for in full, on the condition that Aurelia Cloud retains a perpetual, irrevocable license to any of the Company's pre-existing tools, libraries, or methodologies incorporated therein.",
+      "dense": {
+        "rank": 1,
+        "latency_ms": 37.96
+      },
+      "sparse": {
+        "rank": 1,
+        "latency_ms": 15.31
+      },
+      "hybrid": {
+        "rank": 1,
+        "latency_ms": 62.6
+      }
+    },
+    {
+      "point_id": "2eee9365-517b-5946-bd10-6cba8394c3fa",
+      "query_text": "All information shared by Origami Retail to the Company, whether marked confidential or not, will be considered Confidential Information, and the Company will hold such information in strict confidence for an unlimited duration, with no exceptions for information that becomes public through no fault of the Company.",
+      "dense": {
+        "rank": 1,
+        "latency_ms": 35.08
+      },
+      "sparse": {
+        "rank": 1,
+        "latency_ms": 12.96
+      },
+      "hybrid": {
+        "rank": 1,
+        "latency_ms": 36.24
+      }
+    },
+    {
+      "point_id": "d24413db-57c4-578f-9673-cc83cc02a1c9",
+      "query_text": "The Company will pay invoiced fees within thirty (30) days of receipt of a correct invoice, and any undisputed amount not paid within that period will accrue interest at 1% per month, and Ferrovia Logistics may suspend Services only after providing thirty (30) days' notice in writing of non-payment and an opportunity to cure.",
+      "dense": {
+        "rank": 1,
+        "latency_ms": 47.85
+      },
+      "sparse": {
+        "rank": 1,
+        "latency_ms": 14.95
+      },
+      "hybrid": {
+        "rank": 1,
+        "latency_ms": 46.03
+      }
+    },
+    {
+      "point_id": "48b23fd4-bbb3-55e0-ba0e-7c397668d9e2",
+      "query_text": "All intellectual property rights in any modifications, derivative works, customizations, or improvements made to the Services, whether created by Solace Health Partners, the Company, or jointly, will vest solely in Solace Health Partners, and the Company hereby assigns, and undertakes to assign, all right, title, and interest in such derivative works to Solace Health Partners, including all rights of authorship and invention, notwithstanding any contribution by the Company.",
+      "dense": {
+        "rank": 1,
+        "latency_ms": 41.1
+      },
+      "sparse": {
+        "rank": 1,
+        "latency_ms": 10.91
+      },
+      "hybrid": {
+        "rank": 1,
+        "latency_ms": 63.69
+      }
+    },
+    {
+      "point_id": "4d2aef5d-44a8-5def-9d8b-e4bc94d82c0e",
+      "query_text": "The Company will pay one hundred percent (100%) of the total fees under this Agreement in advance upon execution, and any amount not paid when due will accrue interest at the rate of two percent (2%) per month, or the maximum rate permitted by law, whichever amount is larger, and Tidewater Finance may suspend performance as soon as any late payment.",
+      "dense": {
+        "rank": 1,
+        "latency_ms": 51.6
+      },
+      "sparse": {
+        "rank": 1,
+        "latency_ms": 10.25
+      },
+      "hybrid": {
+        "rank": 1,
+        "latency_ms": 41.14
+      }
+    },
+    {
+      "point_id": "a7f6425f-e150-51f3-aff7-85f47438dfe4",
+      "query_text": "The Company will pay invoiced fees within thirty (30) days of receipt of a correct invoice, and any undisputed amount not paid within that period will accrue interest at 1.5% per month, and Aurelia Cloud may suspend Services only after providing thirty (30) days' notice in writing of non-payment and an opportunity to cure.",
+      "dense": {
+        "rank": 1,
+        "latency_ms": 54.16
+      },
+      "sparse": {
+        "rank": 1,
+        "latency_ms": 11.15
+      },
+      "hybrid": {
+        "rank": 1,
+        "latency_ms": 48.7
+      }
+    },
+    {
+      "point_id": "30532dcf-c7f7-54ce-a818-c0324189688e",
+      "query_text": "The Company will pay invoiced fees within thirty (30) days of receipt of a correct invoice, and any undisputed amount not paid within that period will accrue interest at 1.5% per month, and Kestrel Analytics may suspend Services only after providing thirty (30) days' notice in writing of non-payment and an opportunity to cure.",
+      "dense": {
+        "rank": 1,
+        "latency_ms": 36.0
+      },
+      "sparse": {
+        "rank": 1,
+        "latency_ms": 9.42
+      },
+      "hybrid": {
+        "rank": 1,
+        "latency_ms": 52.33
+      }
+    },
+    {
+      "point_id": "329face4-5b4b-5b69-aa81-acce2de3d159",
+      "query_text": "Any party may end this Agreement as soon as notice in writing if the other party violates any provision of this Agreement, without any duty to provide advance notice or an opportunity to cure, and Tidewater Finance reserves the right to end for convenience upon no less than zero (0) days' prior notice.",
+      "dense": {
+        "rank": 1,
+        "latency_ms": 36.53
+      },
+      "sparse": {
+        "rank": 1,
+        "latency_ms": 10.46
+      },
+      "hybrid": {
+        "rank": 1,
+        "latency_ms": 37.49
+      }
+    },
+    {
+      "point_id": "86ed4025-762d-5f50-868f-eb264d95dde1",
+      "query_text": "Upon expiry of the initial term, this Agreement renews automatically for consecutive one (1) year terms absent notice in writing of non-renewal sent by any party no fewer than sixty (60) days before the renewal date, and Halcyon Biotech will provide the Company no fewer than sixty (60) days' advance notice of any fee increase applicable to the renewal term.",
+      "dense": {
+        "rank": 2,
+        "latency_ms": 32.17
+      },
+      "sparse": {
+        "rank": 1,
+        "latency_ms": 8.87
+      },
+      "hybrid": {
+        "rank": 2,
+        "latency_ms": 40.94
+      }
+    }
+  ]
+}

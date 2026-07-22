@@ -80,6 +80,18 @@ def _embed_sparse(texts: list[str]) -> list[SparseVector]:
     ]
 
 
+def embed_dense_query(text: str) -> list[float]:
+    """Embed a single query string as a dense vector only."""
+
+    return _embed_dense([text])[0]
+
+
+def embed_sparse_query(text: str) -> SparseVector:
+    """Embed a single query string as a sparse vector only."""
+
+    return _embed_sparse([text])[0]
+
+
 def embed_query(text: str) -> tuple[list[float], SparseVector]:
     """Embed a single query string as both a dense and a sparse vector.
 
@@ -87,7 +99,7 @@ def embed_query(text: str) -> tuple[list[float], SparseVector]:
     without that module needing its own embedding models or fastembed import.
     """
 
-    return _embed_dense([text])[0], _embed_sparse([text])[0]
+    return embed_dense_query(text), embed_sparse_query(text)
 
 
 def _coerce_date(value: Any) -> Any:
@@ -170,6 +182,18 @@ def reset_collections() -> None:
     init_collections()
 
 
+def clause_point_id(contract_id: Any, clause_index: Any) -> str:
+    """Derive a clause's deterministic clause_memory point ID.
+
+    Shared by :func:`upsert_clauses` and by anything (e.g. the retrieval
+    ablation harness) that needs to compute a clause's point ID without a
+    round trip to Qdrant, so the derivation formula lives in exactly one
+    place.
+    """
+
+    return str(uuid.uuid5(uuid.NAMESPACE_URL, f"{contract_id}:{clause_index}"))
+
+
 def upsert_clauses(clauses: list[dict[str, Any]], tenant_id: str) -> list[str]:
     """Embed and upsert clauses into ``clause_memory``.
 
@@ -208,7 +232,7 @@ def upsert_clauses(clauses: list[dict[str, Any]], tenant_id: str) -> list[str]:
     for i, (clause, dense_vec, sparse_vec) in enumerate(zip(clauses, dense_vectors, sparse_vectors)):
         contract_id = clause["contract_id"]
         clause_index = clause.get("position", i)
-        point_id = str(uuid.uuid5(uuid.NAMESPACE_URL, f"{contract_id}:{clause_index}"))
+        point_id = clause_point_id(contract_id, clause_index)
         point_ids.append(point_id)
 
         payload = {
@@ -419,6 +443,24 @@ def query_dense(collection: str, dense_vector: list[float], limit: int, **filter
         collection_name=collection,
         query=dense_vector,
         using="dense",
+        query_filter=_equality_filter(**filters),
+        limit=limit,
+        with_payload=True,
+    ).points
+
+
+def query_sparse(collection: str, sparse_vector: SparseVector, limit: int, **filters: Any) -> list[ScoredPoint]:
+    """Run a sparse-only (exact legal-term overlap) query against a collection's ``sparse`` vector.
+
+    Used by the retrieval ablation harness to isolate the sparse leg's
+    contribution from the dense/hybrid configurations. ``filters`` are
+    equality constraints, same as :func:`query_hybrid`.
+    """
+
+    return _client().query_points(
+        collection_name=collection,
+        query=sparse_vector,
+        using="sparse",
         query_filter=_equality_filter(**filters),
         limit=limit,
         with_payload=True,
