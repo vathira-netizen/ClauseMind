@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "precedent/frontend/**", "use": "@vercel/static" },
+    { "src": "precedent/api/review.py", "use": "@vercel/python" }
+  ],
+  "routes": [
+    { "src": "/api/health", "dest": "/precedent/api/review.py" },
+    { "src": "/api/review", "dest": "/precedent/api/review.py" },
+    { "src": "/(.*)", "dest": "/precedent/frontend/index.html" }
+  ]
+}
