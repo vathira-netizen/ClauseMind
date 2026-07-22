@@ -1,13 +1,12 @@
 {
   "version": 2,
-  "functions": {
-    "api/review.py": {
-      "runtime": "python3.11"
-    }
-  },
+  "builds": [
+    { "src": "frontend/**", "use": "@vercel/static" },
+    { "src": "api/review.py", "use": "@vercel/python" }
+  ],
   "routes": [
-    { "src": "/api/health", "dest": "/api/review/health" },
-    { "src": "/api/review", "dest": "/api/review" },
+    { "src": "/api/health", "dest": "/api/review.py" },
+    { "src": "/api/review", "dest": "/api/review.py" },
     { "src": "/(.*)", "dest": "/frontend/index.html" }
   ]
 }
